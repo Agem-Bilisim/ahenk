@@ -29,7 +29,7 @@ class AhenkDbService(object):
     def initialize_table(self):
 
         self.check_and_create_table('task',
-                                    ['id INTEGER', 'create_date TEXT', 'modify_date TEXT', 'command_cls_id TEXT',
+                                    ['id INTEGER', 'create_date TEXT', 'modify_date TEXT', 'task_code TEXT',
                                      'parameter_map BLOB', 'deleted INTEGER', 'plugin TEXT', 'cron_expr TEXT',
                                      'file_server TEXT'])
         self.check_and_create_table('policy',
@@ -61,7 +61,7 @@ class AhenkDbService(object):
         elif table_name == 'session':
             return ['username', 'display', 'desktop', 'timestamp']
         elif table_name == 'task':
-            return ['id', 'create_date', 'modify_date', 'command_cls_id', 'parameter_map', 'deleted', 'plugin',
+            return ['id', 'create_date', 'modify_date', 'task_code', 'parameter_map', 'deleted', 'plugin',
                     'cron_expr', 'file_server']
         elif table_name == 'plugin':
             return ['id', 'active', 'create_date', 'deleted', 'description', 'machine_oriented', 'modify_date', 'name',

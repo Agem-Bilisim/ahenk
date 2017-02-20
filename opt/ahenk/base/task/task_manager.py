@@ -39,7 +39,7 @@ class TaskManager(object):
     def saveTask(self, task):
         try:
             self.logger.debug('task save')
-            task_cols = ['id', 'create_date', 'modify_date', 'command_cls_id', 'parameter_map', 'deleted', 'plugin',
+            task_cols = ['id', 'create_date', 'modify_date', 'task_code', 'parameter_map', 'deleted', 'plugin',
                          'cron_expr', 'file_server']
             plu_cols = ['active', 'create_date', 'deleted', 'description', 'machine_oriented', 'modify_date', 'name',
                         'policy_plugin', 'user_oriented', 'version', 'task_plugin', 'x_based']
@@ -51,7 +51,7 @@ class TaskManager(object):
                            str(task.get_plugin().get_task_plugin()), str(task.get_plugin().get_x_based())]
             plugin_id = self.db_service.update('plugin', plu_cols, plugin_args)
             values = [str(task.get_id()), str(task.get_create_date()), str(task.get_modify_date()),
-                      str(task.get_command_cls_id()), str(task.get_parameter_map()), str(task.get_deleted()),
+                      str(task.get_task_code()), str(task.get_parameter_map()), str(task.get_deleted()),
                       str(plugin_id), str(task.get_cron_str()), str(task.get_file_server())]
             self.db_service.update('task', task_cols, values)
         except Exception as e:

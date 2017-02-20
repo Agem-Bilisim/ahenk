@@ -29,8 +29,8 @@ class Task(object):
         return self.task['modifyDate']
 
     @property
-    def command_cls_id(self):
-        return json.loads(str(self.task))['commandClsId']
+    def task_code(self):
+        return json.loads(str(self.task))['taskCode']
 
     @property
     def parameter_map(self):
@@ -62,7 +62,7 @@ class Task(object):
         return "TASK"
 
     def cols(self):
-        return ['id', 'create_date', 'modify_date', 'command_cls_id', 'parameter_map', 'deleted', 'plugin']
+        return ['id', 'create_date', 'modify_date', 'task_code', 'parameter_map', 'deleted', 'plugin']
 
     def values(self):
-        return [str(self.id), str(self.create_date), str(self.modify_date), str(self.command_cls_id), str(self.parameter_map), str(self.deleted), self.plugin.to_string()]
+        return [str(self.id), str(self.create_date), str(self.modify_date), str(self.task_code), str(self.parameter_map), str(self.deleted), self.plugin.to_string()]

@@ -89,7 +89,7 @@ class Plugin(threading.Thread):
                     self.logger.debug('[Plugin] Executing task')
                     command = Scope.get_instance().get_plugin_manager().find_command(self.getName(),
                                                                                      item_obj.get_plugin().get_version(),
-                                                                                     item_obj.get_command_cls_id().lower())
+                                                                                     item_obj.get_task_code().lower())
                     self.context.put('task_id', item_obj.get_id())
 
                     if item_obj.get_file_server() is not None and item_obj.get_file_server() != 'null':

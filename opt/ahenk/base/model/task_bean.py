@@ -7,11 +7,11 @@
 class TaskBean(object):
     """docstring for TaskBean"""
 
-    def __init__(self, _id=None, create_date=None, modify_date=None, command_cls_id=None, parameter_map=None, deleted=None, plugin=None, cron_str=None, file_server=None):
+    def __init__(self, _id=None, create_date=None, modify_date=None, task_code=None, parameter_map=None, deleted=None, plugin=None, cron_str=None, file_server=None):
         self._id = _id
         self.create_date = create_date
         self.modify_date = modify_date
-        self.command_cls_id = command_cls_id
+        self.task_code = task_code
         self.parameter_map = parameter_map
         self.deleted = deleted
         self.plugin = plugin
@@ -36,11 +36,11 @@ class TaskBean(object):
     def set_modify_date(self, modify_date):
         self.modify_date = modify_date
 
-    def get_command_cls_id(self):
-        return self.command_cls_id
+    def get_task_code(self):
+        return self.task_code
 
-    def set_command_cls_id(self, command_cls_id):
-        self.command_cls_id = command_cls_id
+    def set_task_code(self, task_code):
+        self.task_code = task_code
 
     def get_parameter_map(self):
         return self.parameter_map
@@ -91,7 +91,7 @@ class TaskBean(object):
         task_data = dict()
         task_data['id'] = self._id
         task_data['plugin'] = plugin_data
-        task_data['commandClsId'] = self.command_cls_id
+        task_data['taskCode'] = self.task_code
         task_data['parameterMap'] = self.parameter_map
         task_data['deleted'] = self.deleted
         task_data['cronExpression'] = self.cron_str

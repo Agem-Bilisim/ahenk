@@ -354,7 +354,7 @@ class ExecutionManager(object):
         json_server_conf = json.dumps(json.loads(arg)['fileServerConf'])
 
         task = self.json_to_task_bean(json_task, json_server_conf)
-        self.logger.debug('Adding new  task...Task is:{0}'.format(task.get_command_cls_id()))
+        self.logger.debug('Adding new  task...Task is:{0}'.format(task.get_task_code()))
 
         self.task_manager.addTask(task)
         self.logger.debug('Task added')
@@ -367,7 +367,7 @@ class ExecutionManager(object):
                             user_oriented=plu['userOriented'], version=plu['version'], task_plugin=plu['taskPlugin'],
                             x_based=plu['xBased'])
         return TaskBean(_id=json_data['id'], create_date=json_data['createDate'], modify_date=json_data['modifyDate'],
-                        command_cls_id=json_data['commandClsId'], parameter_map=json_data['parameterMap'],
+                        task_code=json_data['taskCode'], parameter_map=json_data['parameterMap'],
                         deleted=json_data['deleted'], plugin=plugin, cron_str=json_data['cronExpression'],
                         file_server=str(file_server_conf))
 
