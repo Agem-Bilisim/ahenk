@@ -177,7 +177,7 @@ class PluginManager(object):
             self.logger.error(
                 'Exception occurred while processing task. Error Message: {0}'.format(str(e)))
 
-    def find_policy_module(self, plugin_name):
+    def find_policy_module(self, plugin_name,version=None):
         location = os.path.join(self.config_manager.get("PLUGIN", "pluginFolderPath"), plugin_name)
         if os.path.isdir(location) and "policy.py" in os.listdir(location):
             info = imp.find_module("policy", [location])
