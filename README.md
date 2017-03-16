@@ -4,7 +4,7 @@
 
 Ahenk is a Linux agent written in Python which enables Lider to manage & monitor clients remotely.
 
->Add new repo with [this](https://github.com/Agem-Bilisim/lider-ahenk-installer/blob/master/ahenk-installer/conf/liderahenk.list) file 
+>Add new repo with **deb http://ftp.pardus.org.tr/lider-ahenk/la-stable yenikusak main** file 
 
 ## Documentation
 
